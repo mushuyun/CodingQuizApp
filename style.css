@@ -1,0 +1,90 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+.container{
+    align-items: center;
+    width:800px;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 0 0 10px 2px rgb(23, 39, 4);
+}
+
+.btn {
+    border: 1px solid;
+    background-color: rgb(80, 66, 51);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: rgb(236, 234, 243);
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    margin:10px;
+}
+
+.start-btn{
+    margin-left: 210px;
+    font-size: 60px;
+    padding: 10px 20px;
+}
+.submit-btn{
+
+    margin-top: 20px;
+    font-size: 30px;
+    padding: 5px 10px;
+}
+.btn:hover {
+    background-color: rgb(199, 206, 206);
+}
+.question{
+    font-weight: bold;
+    font-size: 20px;
+}
+.choice{
+    text-align: left;
+    font-size: 18px;
+    color: darkblue;
+    cursor: pointer;
+    padding : 2px;
+}
+.choice:hover{
+    border : 2px solid grey;
+    font-weight: bold;
+}
+
+h1{
+    text-align: center;
+}
+
+.timer{
+    height : 100px;
+    width : 200px;
+    bottom : 0px;
+    text-align: center;
+    float: right;
+}
+.counter{
+    font-size: 2em;
+}
+
+#timeGauge{
+    height : 10px;
+    border-radius: 10px;
+    background-color: mediumseagreen;
+}
+span{
+    font-size: 26px;
+    font-weight: bold;
+    padding:10px;
+}
+.goBack-btn btn, clearHighScore-btn {
+    margin-top: 20px;;
+}
