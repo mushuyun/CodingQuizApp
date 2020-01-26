@@ -1,18 +1,5 @@
-/*steps to create the multiple quiz app.
-Start quiz: Start-btn
-load the first question & start timer
-render page to load next question : next-btn 
-sart score from 0
-check if it is the last question 
-if answer is correct, score+20
-if answer is wrong, timer - 2 seconds as punish
-after last question, load the score page, enter initials and submit. sumbit-btn
-record initial and score in local storage
-show highScore, name and score
-clear highScore, goBack to restart. 
 
-set up variables*/
-
+//set up variables*/
 var startBtn = document.getElementById("start-btn");
 var quizContainer = document.getElementById("quiz-container");
 var question = document.getElementById("question");
@@ -27,7 +14,6 @@ var goBackBtn = document.getElementById("goBack-btn");
 var scoreContainer = document.getElementById("scoreContainer")
 var clearHighScoreBtn = document.getElementById("clearHighScore-btn");
 var timer = document.getElementById("timer");
-var initial = document.getElementById("initial");
 
 /*create questions*/
 var questions = [
@@ -85,14 +71,13 @@ var gaugeWidth = 150; // 150px
 var gaugeUnit = gaugeWidth / questionTime;
 
 
-//quiz process
 startBtn.addEventListener("click",startQuiz);
 submitBtn.addEventListener("click",submit);
-
 goBackBtn.addEventListener("click", function(){
     startBtn.style.display="block";
     highScoreContainer.style.display="none";
 });
+clearHighScoreBtn.addEventListener("click",clear);
 
 // start quiz
 function startQuiz(){
@@ -107,7 +92,7 @@ function startQuiz(){
     renderCounter();
     TIMER = setInterval(renderCounter,1500); // 1000ms = 1s
 }   
-  
+  // render question
 function renderQuestion(){
     var q = questions[runningQuestionIndex];
     question.innerHTML = "<p>"+ q.question +"</p>";
@@ -118,6 +103,7 @@ function renderQuestion(){
     correct.innerHTML = q.correct
 }
 
+//check answer
 function checkAnswer(answer){
     var q = questions[runningQuestionIndex];
   
@@ -151,8 +137,8 @@ function answerIsWrong(answer){
     document.getElementById("quiz-container").appendChild(comment);
 }
    
-function renderCounter(){
-        
+//render counter
+function renderCounter(){        
         if(count > 0){
             count--;
             counter.innerHTML = count;  
@@ -162,6 +148,8 @@ function renderCounter(){
                 scoreDisplay();
             }
     }
+
+//load score page
 function scoreDisplay(){
     quizContainer.style.display="none";
     scoreContainer.style.display = "block";  
@@ -173,27 +161,31 @@ function submit(){
     scoreContainer.style.display = "none";
     highScoreContainer.style.display = "block";
     timer.style.display="none";
-    initial = document.getElementById("initial");
+    var initial = document.getElementById("initial");
     localStorage.setItem("initial", initial.value);
     localStorage.setItem("score", JSON.stringify(score));
     highScoreDisplay();
 }
 
+//load highScore page
 function highScoreDisplay(){
     var name = document.getElementById("name");
+    var initial = document.getElementById("initial");
     var highScore = document.getElementById("highScore");
     name.innerText = localStorage.getItem("initial");
     highScore.innerText = localStorage.getItem("score");   
     }
 
-clearHighScoreBtn.addEventListener("click",function(){
+//storage
+function clear(){
     var name = document.getElementById("name");
+    var initial = document.getElementById("initial");
     var highScore = document.getElementById("highScore");
         localStorage.clear();
         highScore.innerText="";
         name.innerText="";
-    })
-    
+        initial.value="";
+}
 
 
 
