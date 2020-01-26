@@ -8,4 +8,4 @@ Here is a screen shot to show you how it looks.
 
 ![CodingQuizApp Screen Shots](images/screenShot1.png)
 ![CodingQuizApp Screen Shots](images/screenShot2.png)
-![CodingQuizApp Screen Shots](images/screenShot3.png)
+![CodingQuizApp Screen Shots](images/ScreenShot3.png)
